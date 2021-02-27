@@ -16,7 +16,7 @@ function App() {
     }, []);
     return (
         <Layout>
-            {data ? <Chart data={data} /> : null}
+            {data ? <Chart data={data} /> : <div></div>}
         </Layout>
     )
 }

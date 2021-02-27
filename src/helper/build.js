@@ -25,7 +25,7 @@ export default function build(d, svg) {
 
   fontSize.domain([1, d.length]);
   y.domain([1, d.length]);
-  
+
   //objectives
   svg
     .selectAll(".arc")
@@ -94,7 +94,7 @@ export default function build(d, svg) {
       .attr("href", d => "#seg" + d.data.id)
       .attr("font-size", fontSize(i) + "em")
       .text(d => d.data.task)
-      .each(function(d) {
+      .each(function (d) {
         chop(this, d, radii[i], darker(scheme[i + 1]));
       });
   }

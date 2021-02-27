@@ -12,18 +12,17 @@ import {
   scheme
 } from "./constants/constants";
 
-const YEAR = process.env.YEAR
+const YEAR = process.env.REACT_APP_YEAR
 
 function draw(data) {
   const { tasks, objectives, values } = data;
   const valuesCircles = createCircles(values, valuesRadius);
   let svg = d3
     .select("#svg")
-    .attr('viewBox', `0 0 ${svgWidth} ${svgHeight}`)    
+    .attr('viewBox', `0 0 ${svgWidth} ${svgHeight}`)
     .call(
-      d3.zoom().on("zoom", function({transform}) {
-        svg.attr("transform", transform);
-      })
+      d3.zoom().on("zoom", ({ transform }) =>
+        svg.attr("transform", transform))
     )
     .append("g")
     .attr("transform", `translate(${translateX},${translateY})`);
@@ -79,7 +78,7 @@ function draw(data) {
     .attr("font-size", "0.4em")
     .attr("id", d => d.id)
     .text(d => d.value)
-    .each(function(d) {
+    .each(function (d) {
       let text = d3.select(this),
         words = text
           .text()
