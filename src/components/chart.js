@@ -5,6 +5,7 @@ import ChartTip from './chartTip'
 import { makeStyles } from '@material-ui/core/styles';
 import { getTipPos } from '../helper/getTipPos';
 import { TipContent } from './TipContent';
+import { highlight, unhighlight } from '../helper/highlights';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -25,16 +26,18 @@ function Chart({ data }) {
     useEffect(() => {
         d3.selectAll('g[class^="arc"]')
             .style("cursor", "pointer")
-            .on("mouseover", function (e, d) {
-                const { objective, task, team } = d.data
-                setHoverData({ objective, task, team })
-                const [x, y] = getTipPos(e)
-                setTipPos([x, y])
-                if ((objective.length > 0 && task.length > 0) || team.length === 0)
-                    setTipVisibility(true)
+            .on("mouseover", (e, d) => {
+                const { objective, task, team } = d.data;
+                setHoverData({ objective, task, team });
+                setTipPos(getTipPos(e));
+                highlight(e,d);
+                if ((objective.length > 0 && task.length > 0) || team.length === 0) {
+                    setTipVisibility(true);
+                }
             })
-            .on('mouseleave', function (e, d) {
-                setTipVisibility(false)
+            .on('mouseleave', (e, d) => {
+                unhighlight(e, d)
+                setTipVisibility(false);
             })
     }, [])
     return (
