@@ -1,6 +1,13 @@
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
+const Content = ({ title, text }) => (
+    <>
+        <Typography variant="caption" display="block" color='secondary'>{title}</Typography>
+        <Typography variant="body2" display="block" gutterBottom>{text}</Typography>
+    </>
+)
+
 export function TipContent({ hoverData }) {
     const { objective, team, task } = hoverData;
     if (team.length === 0) {
@@ -12,11 +19,10 @@ export function TipContent({ hoverData }) {
     }
     else {
         return (
-            <Typography variant='caption' component='div'>
-                <Box fontWeight='fontWeightBold'>{task}</Box>
-                <Box>{team}</Box>
-                <Box>{objective}</Box>
-            </Typography>
+            <>
+                <Content title={'Task'} text={task} />
+                <Content title={'Outcome'} text={objective} />
+            </>
         );
     }
 }

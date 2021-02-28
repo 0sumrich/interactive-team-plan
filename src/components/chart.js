@@ -4,7 +4,7 @@ import * as d3 from 'd3';
 import ChartTip from './chartTip'
 import { makeStyles } from '@material-ui/core/styles';
 import { getTipPos } from '../helper/getTipPos';
-import { TipContent } from './TipContent';
+import { TipContent } from './tipContent';
 import { highlight, unhighlight } from '../helper/highlights';
 
 const useStyles = makeStyles(theme => ({
