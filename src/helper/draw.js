@@ -20,12 +20,13 @@ function draw(data) {
   let svg = d3
     .select("#svg")
     .attr('viewBox', `0 0 ${svgWidth} ${svgHeight}`)
-    .call(
-      d3.zoom().on("zoom", ({ transform }) =>
-        svg.attr("transform", transform))
-    )
     .append("g")
     .attr("transform", `translate(${translateX},${translateY})`);
+
+  d3.select('#svg').call(
+    d3.zoom().on("zoom", ({ transform }) =>
+      d3.select('#svg > g').attr("transform", transform))
+  )
 
   svg
     .append("text")

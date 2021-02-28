@@ -18,7 +18,7 @@ function darker(col) {
   return d3.color(col).darker([2]) + "";
 }
 
-export default function build(d, svg) {
+export default function build(d, inSvg) {
   const objectives = d[0];
 
   const radii = getRadii(d.length, radius, innerMost);
@@ -26,6 +26,7 @@ export default function build(d, svg) {
   fontSize.domain([1, d.length]);
   y.domain([1, d.length]);
 
+  const svg = inSvg.append('g').attr('class', 'mainChart')
   //objectives
   svg
     .selectAll(".arc")
@@ -107,7 +108,7 @@ export default function build(d, svg) {
     .range([5, 0.3 * height]);
   const legXPos = width / 2;
   const legYPos = 0 - height / 2 + margin.top / 3;
-  let legend = svg
+  let legend = inSvg
     .append("g")
     .attr("transform", "translate(" + legXPos + "," + legYPos + ")");
 
