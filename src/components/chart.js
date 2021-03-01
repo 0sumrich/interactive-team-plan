@@ -30,7 +30,7 @@ function Chart({ data }) {
                 const { objective, task, team } = d.data;
                 setHoverData({ objective, task, team });
                 setTipPos(getTipPos(e));
-                highlight(e,d);
+                highlight(e, d);
                 if ((objective.length > 0 && task.length > 0) || team.length === 0) {
                     setTipVisibility(true);
                 }
@@ -43,7 +43,7 @@ function Chart({ data }) {
     return (
         <div className={classes.chartWrapper}>
             <svg id="svg" className={classes.root} />
-            <ChartTip left={tipPos[0]} top={tipPos[1]} visible={tipVisibility}>
+            <ChartTip left={tipPos[0]} top={tipPos[1] - 5} visible={tipVisibility}>
                 <TipContent hoverData={hoverData} />
             </ChartTip>
         </div>

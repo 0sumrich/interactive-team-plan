@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => {
             transform: "translate(-50%, -100%)",
             visibility: props => props.visible ? 'visible' : 'hidden',
             background: theme.palette.grey[900],
-            opacity: 0.7,
+            opacity: 0.9,
             color: theme.palette.primary.contrastText,
             borderRadius: theme.shape.borderRadius,
             padding: theme.spacing(1)
