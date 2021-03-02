@@ -32,7 +32,8 @@ const RotateBtn = ({ direction, click, degrees }) => {
 const handleClick = degrees => {
     const chart = d3.select('.mainChart')
     const trans = chart.attr('transform')
-    const currentDegrees = trans ? Number(trans.slice('rotate('.length, -1)) : 0
+    const start = 'rotate('.length
+    const currentDegrees = trans ? Number(trans.slice(start, trans.indexOf(')', start))) : 0
     chart
         .transition()
         .duration(1000)

@@ -1,5 +1,4 @@
 import * as d3 from "d3";
-import arc from "./arc";
 import getRings from "./getRings";
 import getObjectives from "./getObjectives";
 import mergeData from './mergeData'
@@ -21,7 +20,7 @@ export default function sortData(inObjectives, tasks) {
     return o;
   });
   //check for the "" then re add it at the beginning - it represents the objectives ring
-  const rings = getRings(data).filter(x => x!="")
+  const rings = getRings(data).filter(x => x!=="")
   rings.splice(0, 0, "")
   
   const objectives = pie(getObjectives(data));

@@ -90,7 +90,6 @@ function draw(data) {
         x = d.x,
         line = [],
         word,
-        lineNumber = 1,
         lineHeight = 1.1,
         w =
           2 * Math.sqrt(Math.pow(smallCirclesRadius, 2) - Math.pow(lineY, 2)) -
@@ -109,7 +108,6 @@ function draw(data) {
           tspan.text(line.join(" "));
           line = [word];
           lineY += lineHeight;
-          lineNumber++;
           tspan = text
             .append("tspan")
             .attr("x", x)
