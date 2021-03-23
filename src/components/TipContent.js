@@ -10,12 +10,12 @@ const pillarFullName = team => {
     }
     const pillars = [
         'Operations',
-        'Strategic leadership',
-        'Marketing',
-        'Knowledge management and business intelligence',
-        'Engagement',
-        'Financial planning and control',
-        'Pillar 6'
+        'Strategic Leadership and Business Direction',
+        'Brand and Market Position',
+        'Knowledge Management and Business Intelligence',
+        'Stakeholder Engagement and Relationship Management',
+        'Resource Efficiency and Skills Deployment',
+        'Financial Planning and Controls'
     ]
     const idx = Number(team.replace('Pillar ', ''))
     return `${team}: ${pillars[idx]}`
